@@ -10,5 +10,5 @@ node test-client.js --server 8080
 
 Para correr el ejemplo
 ``` bash
-node test-client-js
+node test-client.js
 ```
