@@ -1,0 +1,26 @@
+{
+  "name": "adapter",
+  "version": "1.0.0",
+  "main": "adapter.js",
+  "scripts": {
+    "start": "node adapter.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "bayes",
+  "license": "ISC",
+  "description": "",
+  "keywords": [
+    "http",
+    "tcp",
+    "adapter",
+    "proxy",
+    "bridge"
+  ],
+  "dependencies": {
+    "axios": "^1.9.0",
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}
