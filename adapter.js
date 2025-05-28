@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const net = require('net');
 const { promisify } = require('util');
 
@@ -44,6 +45,7 @@ class TCPConnectionPool {
 class HTTPToTCPAdapter {
   constructor(options = {}) {
     this.app = express();
+    this.app.use(cors());
     this.tcpPool = new TCPConnectionPool();
     this.timeout = options.timeout || 5000;
     this.setupMiddleware();
@@ -230,7 +232,7 @@ class HTTPToTCPAdapter {
     });
   }
 
-  start(port = 3000) {
+  start(port = 3001) {
     return new Promise((resolve) => {
       this.server = this.app.listen(port, () => {
         console.log(`[OK] Servidor adaptador HTTP-to-TCP ejecutándose en puerto ${port}`);
@@ -259,7 +261,7 @@ async function main() {
     timeout: 5000
   });
 
-  await adapter.start(3000);
+  await adapter.start(3001);
 
   // Manejo graceful de cierre
   process.on('SIGINT', async () => {
